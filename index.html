@@ -681,12 +681,12 @@
 
     .surprise-headline {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 900;
       color: var(--bg-yellow);
       text-shadow: 3px 3px 0px var(--dark-border);
       text-align: center;
-      margin-top: 8px;
+      margin-top: 10px;
       opacity: 0;
       transform: scale(0.3);
       transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27), transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27);
@@ -697,24 +697,46 @@
     .surprise-headline.bounce-in {
       opacity: 1;
       transform: scale(1);
-      animation: elasticBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+      animation: elasticBounce 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.27), popPulseGlow 1.8s ease-in-out 0.7s infinite alternate;
     }
 
     @keyframes elasticBounce {
       0% {
-        transform: scale(0.3);
+        transform: scale(0.2) rotate(-8deg);
+        opacity: 0;
       }
 
-      60% {
-        transform: scale(1.15);
+      50% {
+        transform: scale(1.18) rotate(4deg);
+        opacity: 1;
       }
 
-      80% {
-        transform: scale(0.95);
+      75% {
+        transform: scale(0.92) rotate(-2deg);
       }
 
       100% {
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @keyframes popPulseGlow {
+      0% {
+        transform: scale(1) rotate(0deg);
+        color: #feca57;
+        text-shadow: 3px 3px 0px var(--dark-border), 0 0 15px rgba(254, 202, 87, 0.8);
+      }
+
+      50% {
+        transform: scale(1.08) rotate(2deg);
+        color: #ff6b81;
+        text-shadow: 4px 4px 0px var(--dark-border), 0 0 20px rgba(255, 107, 129, 0.9);
+      }
+
+      100% {
+        transform: scale(1.03) rotate(-2deg);
+        color: #1dd1a1;
+        text-shadow: 3px 3px 0px var(--dark-border), 0 0 18px rgba(29, 209, 161, 0.9);
       }
     }
 
@@ -764,11 +786,11 @@
     .polaroid-deck-stage {
       position: relative;
       width: 100%;
-      height: 255px;
+      height: 330px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2px 0 4px 0;
+      margin: 4px 0 6px 0;
       pointer-events: auto;
       cursor: pointer;
     }
@@ -776,8 +798,8 @@
     /* Background Card Stack Shadows */
     .deck-shadow-card {
       position: absolute;
-      width: 190px;
-      height: 230px;
+      width: 250px;
+      height: 300px;
       background: var(--bg-pink);
       border: 3px solid var(--dark-border);
       border-radius: 12px;
@@ -790,8 +812,8 @@
 
     .deck-shadow-card-2 {
       position: absolute;
-      width: 190px;
-      height: 230px;
+      width: 250px;
+      height: 300px;
       background: var(--bg-mint);
       border: 3.5px solid var(--dark-border);
       border-radius: 12px;
@@ -807,11 +829,12 @@
       position: relative;
       z-index: 10;
       background: #ffffff;
-      padding: 8px 8px 12px 8px;
+      padding: 10px 10px 14px 10px;
       border: 3.5px solid var(--dark-border);
-      border-radius: 12px;
+      border-radius: 14px;
       box-shadow: var(--pop-shadow-lg);
-      width: 200px;
+      width: 265px;
+      max-width: 90vw;
       transform: rotate(-2deg);
       transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.27), opacity 0.45s ease;
       will-change: transform, opacity;
@@ -840,9 +863,9 @@
 
     .polaroid-img-frame {
       width: 100%;
-      height: 150px;
+      height: 215px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 8px;
       border: 2px solid var(--dark-border);
       background: #dfe6e9;
       display: block;
@@ -850,12 +873,12 @@
 
     .polaroid-card-caption {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--dark-border);
       text-align: center;
-      margin-top: 6px;
+      margin-top: 8px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .washi-tape-badge {
@@ -1302,7 +1325,6 @@
 
         <!-- SCENE 1: THE TRAP & SURPRISE -->
         <div class="scene active" id="scene-0">
-          <div class="pop-badge">🚨 PHÂN CẢNH 1: BẪY MỞ QUÀ 🚨</div>
           <div class="scene-title" id="scene1Warning">
             ⚠️ CẢNH BÁO: Món quà 'tiền tỷ' đặc biệt dành riêng cho con bạn thân chí cốt! ⚠️
           </div>
@@ -1336,11 +1358,6 @@
 
         <!-- SCENE 2: INTERACTIVE MEMORY POLAROID CAROUSEL (ĐAM MÊ NGỦ & ĐI CHƠI) -->
         <div class="scene" id="scene-1">
-          <div class="pop-badge">📸 PHÂN CẢNH 2: SIÊU PHẨM DÌM HÀNG 🤡</div>
-
-          <!-- Photo Counter Badge -->
-          <div class="photo-counter-badge" id="photoCounterBadge">📸 KỶ NIỆM 1/5 (CHẠM ĐỔI 👈👉)</div>
-
           <!-- Polaroid Stack Stage -->
           <div class="polaroid-deck-stage" id="polaroidDeckTrigger" title="Bấm vào để đổi khoảnh khắc kỷ niệm!">
             <div class="deck-shadow-card"></div>
@@ -1365,7 +1382,6 @@
 
         <!-- SCENE 3: INTERACTIVE CAKE & THAILAND TRIP VOUCHER -->
         <div class="scene" id="scene-2">
-          <div class="pop-badge">🕯️ PHÂN CẢNH 3: THỔI NẾN SĂN VOUCHER 🎂</div>
           <div class="scene-title" id="scene3Instruction">
             Nhắm mắt lại cầu cho năm nay: HẾT Ế, GIÀU NHANH, ĐI DU LỊCH THÁI LAN.<br>Rồi chạm vào nến để thổi tắt đi!
             🕯️✨
@@ -1414,10 +1430,6 @@
               "Nói đùa vậy thôi, chúc mày tuổi mới luôn xinh đẹp rạng ngời, kiếm được thật nhiều tiền để nuôi tao, sớm
               có người yêu rước đi cho đỡ phiền và mãi mãi là bạn thân đỉnh nhất quả đất của tao nhé! 💖"
             </div>
-
-            <button class="btn-pop" id="btnRestart" style="margin-top: 4px;">
-              <span>XEM LẠI TỪ ĐẦU 🔄</span>
-            </button>
           </div>
         </div>
 
@@ -1427,7 +1439,7 @@
   </div>
 
   <!-- Audio Element -->
-  <audio id="bgMusic" loop preload="auto"></audio>
+  <audio id="bgMusic" preload="auto"></audio>
 
   <!-- JavaScript Application Logic -->
   <script>
@@ -1435,14 +1447,15 @@
        MEDIA & CONTENT CONFIGURATION OBJECT (DỄ DÀNG TÙY CHỈNH DỮ LIỆU)
        ========================================================================== */
     const CONFIG = {
-      // Audio Background URL (File Noi_Banh_Chung.mp3 phát khi nhấn mở quà)
-      musicUrl: 'Noi_Banh_Chung.mp3',
+      // Audio Background URL (File Loa_Phuong_Thông_Bao.mp3 phát khi nhấn mở quà)
+      musicUrl: 'Loa_Phuong_Thông_Bao.mp3',
 
-      // Duration for default story scenes in milliseconds (8.5 seconds)
-      sceneDuration: 8500,
-
-      // Duration for SCENE 1 (from gift open to scene advance) in milliseconds (5 seconds)
-      scene1Duration: 6000,
+      // Duration settings in milliseconds (Tổng thời gian 4 Scene = 30 giây)
+      scene1Duration: 5000, // Scene 1: 5 giây
+      scene2Duration: 8500, // Scene 2: 8.5 giây
+      scene3Duration: 8500, // Scene 3: 8.5 giây
+      scene4Duration: 6000, // Scene 4: 8 giây
+      sceneDuration: 8500,  // Mặc định fallback
 
       // Recipient profile info
       recipientName: 'CON BẠN THÂN CHÍ CỐT 💅',
@@ -1456,34 +1469,34 @@
         subText: "Hộp quà này không có sổ đỏ đâu, chỉ có tấm lòng vô giá của tao thôi nha con quỉ!!! 🤪"
       },
 
-      // Scene 2 Config (FOCUSED ON SLEEP & TRAVEL / HANGING OUT)
+      // Scene 2 Config (Album ảnh kỷ niệm thực tế)
       scene2: {
-        caption: "Tuy mày hơi cọc, tính khí thất thường, không thích trà sữa mà CHỈ ĐAM MÊ NGỦ & ĐI CHƠI... nhưng may cho mày là có đứa bạn thân tuyệt vời như tao chịu đựng ngần ấy năm! 💅✨",
+        caption: "Tuy mày hơi cọc, tính khí thất thường, chỉ đam mê ngủ và đi chơi... nhưng may cho mày là có đứa bạn thân đỉnh chóp như tao chịu đựng ngần ấy năm! 💅✨",
         polaroids: [
           {
-            title: 'HỒ SƠ ĐEN #1 😴',
-            caption: 'Đam mê ngủ 12 tiếng/ngày chưa chịu dậy 💤',
-            url: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
+            title: 'KỶ NIỆM #1 🌊',
+            caption: 'Tận hưởng gió biển hay ngủ gật ngoài bờ kè? 💤',
+            url: 'images/20230902_171143.jpg'
           },
           {
-            title: 'HỒ SƠ ĐEN #2 ✈️',
-            caption: 'Nhấc máy lên là lên kèo đi chơi liền 🚗',
-            url: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80'
+            title: 'KỶ NIỆM #2 ✈️',
+            caption: 'Đam mê xê dịch, cứ rủ là lên đồ đi liền 🏖️',
+            url: 'images/20230903_105304.jpg'
           },
           {
-            title: 'HỒ SƠ ĐEN #3 😴',
-            caption: 'Dáng ngủ quý phái bất chấp thời gian & không gian 💤',
-            url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80'
+            title: 'KỶ NIỆM #3 ☕',
+            caption: 'Hội bạn chí cốt quậy đục nước mọi quán xá 🥳',
+            url: 'images/20231209_195029.jpg'
           },
           {
-            title: 'HỒ SƠ ĐEN #4 📸',
-            caption: 'Tri kỷ sống ảo cùng tao trên mọi nẻo đường ✨',
-            url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80'
+            title: 'KỶ NIỆM #4 🐰',
+            caption: 'Góc dịu dàng hiếm hoi bên thỏ My Melody 💖',
+            url: 'images/IMG_1012.JPEG'
           },
           {
-            title: 'HỒ SƠ ĐEN #5 🇹🇭',
-            caption: 'Chuẩn bị hành lý sang Thái Lan quậy đục nước 🥭✈️',
-            url: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80'
+            title: 'KỶ NIỆM #5 🎂',
+            caption: 'Sinh nhật tuổi mới bớt lười, thêm xinh đẹp nha ✨',
+            url: 'images/IMG_1013.JPEG'
           }
         ]
       },
@@ -1498,7 +1511,7 @@
       // Scene 4 Config (Finale Photo & Wish)
       scene4: {
         title: "👑 HAPPY BIRTHDAY CON BẠN THÂN 👑",
-        bestiePhoto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+        bestiePhoto: 'images/IMG_1018.JPEG',
         finalMessage: "Nói đùa vậy thôi, chúc mày tuổi mới luôn xinh đẹp rạng ngời, kiếm được thật nhiều tiền dắt tụi tao đi chơi, sớm có người yêu rước đi cho đỡ phiền và mãi mãi là bạn thân đỉnh nhất quả đất của tao nhé! 💖🌸"
       }
     };
@@ -1582,8 +1595,14 @@
       document.getElementById('bestiePhoto').src = CONFIG.scene4.bestiePhoto;
       document.getElementById('finalMessage').textContent = CONFIG.scene4.finalMessage;
 
-      // Audio setup
+      // Audio setup (preload audio file for instant playback response, play only once)
       bgMusic.src = CONFIG.musicUrl;
+      bgMusic.loop = false;
+      bgMusic.load();
+      bgMusic.addEventListener('ended', () => {
+        isPlaying = false;
+        musicBtn.classList.remove('playing');
+      });
 
       // Setup Scene 2 Dots UI & Initial Polaroid Photo
       initScene2Gallery();
@@ -1630,7 +1649,7 @@
           polaroidTape.textContent = data.title;
           polaroidMainImg.src = data.url;
           polaroidMainCaption.textContent = data.caption;
-          photoCounterBadge.textContent = `📸 KỶ NIỆM ${currentPhotoIndex + 1}/${photos.length} (CHẠM ĐỔI 👈👉)`;
+          if (photoCounterBadge) photoCounterBadge.textContent = `📸 KỶ NIỆM ${currentPhotoIndex + 1}/${photos.length}`;
 
           polaroidActiveCard.classList.remove('slide-out');
           polaroidActiveCard.classList.add('slide-in');
@@ -1643,7 +1662,7 @@
         polaroidTape.textContent = data.title;
         polaroidMainImg.src = data.url;
         polaroidMainCaption.textContent = data.caption;
-        photoCounterBadge.textContent = `📸 KỶ NIỆM ${currentPhotoIndex + 1}/${photos.length} (CHẠM ĐỔI 👈👉)`;
+        if (photoCounterBadge) photoCounterBadge.textContent = `📸 KỶ NIỆM ${currentPhotoIndex + 1}/${photos.length}`;
       }
 
       // Update dots UI
@@ -1697,16 +1716,41 @@
     /* ==========================================================================
        AUDIO CONTROLLER WITH WEB AUDIO API FALLBACK
        ========================================================================== */
-    function unlockAndPlayAudio() {
-      if (!audioUnlocked) {
-        audioUnlocked = true;
-        bgMusic.play().then(() => {
+    function playMusicDirectly() {
+      audioUnlocked = true;
+      try {
+        bgMusic.currentTime = 0;
+      } catch (e) { }
+
+      if (!bgMusic.src || bgMusic.src === '' || bgMusic.src === window.location.href) {
+        bgMusic.src = CONFIG.musicUrl;
+      }
+
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
           isPlaying = true;
           musicBtn.classList.add('playing');
         }).catch(err => {
-          console.warn("Audio autoplay blocked by browser policy, using Web Audio synth fallback:", err);
-          playWebAudioBirthdayMelody();
+          console.warn("Retrying bgMusic.play() on click...", err);
+          bgMusic.load();
+          bgMusic.play().then(() => {
+            isPlaying = true;
+            musicBtn.classList.add('playing');
+          }).catch(err2 => {
+            console.error("Audio playback error:", err2);
+            playWebAudioBirthdayMelody();
+          });
         });
+      } else {
+        isPlaying = true;
+        musicBtn.classList.add('playing');
+      }
+    }
+
+    function unlockAndPlayAudio() {
+      if (!audioUnlocked) {
+        playMusicDirectly();
       } else {
         toggleMusic();
       }
@@ -1767,8 +1811,8 @@
       if (isGiftOpened) return;
       isGiftOpened = true;
 
-      // Start audio playback
-      unlockAndPlayAudio();
+      // Start audio playback immediately on click
+      playMusicDirectly();
 
       // Stop shaking and flip lid off
       giftBox.classList.remove('shaking');
@@ -1881,7 +1925,10 @@
 
     function getSceneDuration(sceneIdx) {
       if (sceneIdx === 0) return CONFIG.scene1Duration || 5000;
-      return CONFIG.sceneDuration;
+      if (sceneIdx === 1) return CONFIG.scene2Duration || CONFIG.sceneDuration || 8500;
+      if (sceneIdx === 2) return CONFIG.scene3Duration || CONFIG.sceneDuration || 8500;
+      if (sceneIdx === 3) return CONFIG.scene4Duration || 8000;
+      return CONFIG.sceneDuration || 8500;
     }
 
     function updateTimeline(now) {
@@ -2016,10 +2063,12 @@
         nextPolaroidPhoto();
       });
 
-      photoCounterBadge.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextPolaroidPhoto();
-      });
+      if (photoCounterBadge) {
+        photoCounterBadge.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextPolaroidPhoto();
+        });
+      }
 
       // Music Button
       musicBtn.addEventListener('click', (e) => {
@@ -2030,11 +2079,21 @@
       // Touch Navigation Regions (30% Left / 70% Right)
       touchPrev.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (currentScene === 0 && !isGiftOpened) {
+          handleGiftOpen();
+          return;
+        }
         prevScene();
       });
 
       touchNext.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (currentScene === 0) {
+          if (!isGiftOpened) {
+            handleGiftOpen();
+          }
+          return;
+        }
         if (currentScene === 2) {
           if (!isCandleBlown) {
             blowCandle(e);
@@ -2050,29 +2109,31 @@
         blowCandle(e);
       });
 
-      // Restart Story Button
-      btnRestart.addEventListener('click', (e) => {
-        e.stopPropagation();
-        isCandleBlown = false;
-        isGiftOpened = false;
+      // Restart Story Button (if present)
+      if (btnRestart) {
+        btnRestart.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isCandleBlown = false;
+          isGiftOpened = false;
 
-        // Reset Candle UI
-        flame.classList.remove('extinguished');
-        smoke.classList.remove('active');
-        wishToast.classList.remove('show');
+          // Reset Candle UI
+          flame.classList.remove('extinguished');
+          smoke.classList.remove('active');
+          wishToast.classList.remove('show');
 
-        // Reset Gift Box UI
-        giftLid.classList.remove('opened');
-        giftBox.classList.add('shaking');
-        surpriseTitle.classList.remove('bounce-in');
-        scene1Subtext.classList.remove('show');
+          // Reset Gift Box UI
+          giftLid.classList.remove('opened');
+          giftBox.classList.add('shaking');
+          surpriseTitle.classList.remove('bounce-in');
+          scene1Subtext.classList.remove('show');
 
-        // Reset Start Button
-        btnStart.style.opacity = '1';
-        btnStart.style.pointerEvents = 'auto';
+          // Reset Start Button
+          btnStart.style.opacity = '1';
+          btnStart.style.pointerEvents = 'auto';
 
-        goToScene(0);
-      });
+          goToScene(0);
+        });
+      }
 
       // HOLD / PRESS TO PAUSE STORY LOGIC
       const startHold = (e) => {
