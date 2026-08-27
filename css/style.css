@@ -1,0 +1,1217 @@
+/* ==========================================================================
+   1. CORE POP-ART COLOR PALETTE & RESET
+   ========================================================================== */
+:root {
+  --bg-yellow: #feca57;
+  --bg-orange: #ff9f43;
+  --bg-pink: #ff6b81;
+  --bg-mint: #1dd1a1;
+  --bg-purple: #a29bfe;
+  --dark-border: #2d3436;
+  --white: #ffffff;
+  --pop-shadow: 5px 5px 0px var(--dark-border);
+  --pop-shadow-lg: 8px 8px 0px var(--dark-border);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d111d;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  color: var(--dark-border);
+  position: relative;
+}
+
+/* Vibrant Animated Background Pattern */
+.ambient-bg {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 30%, rgba(254, 202, 87, 0.35), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 129, 0.35), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(162, 155, 254, 0.35), transparent 40%),
+    radial-gradient(circle at 10% 80%, rgba(29, 209, 161, 0.3), transparent 40%);
+  animation: ambientSpin 22s linear infinite;
+  z-index: 1;
+  filter: blur(50px);
+}
+
+@keyframes ambientSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating Outer Y2K Meme & Travel Stickers */
+.outer-stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.float-sticker {
+  position: absolute;
+  font-size: 2rem;
+  filter: drop-shadow(3px 3px 0 var(--dark-border));
+  animation: floatSticker 6s ease-in-out infinite alternate;
+}
+
+.fs-1 {
+  top: 6%;
+  left: 4%;
+  animation-delay: 0s;
+  transform: rotate(-12deg);
+}
+
+.fs-2 {
+  top: 12%;
+  right: 5%;
+  animation-delay: 1.2s;
+  transform: rotate(15deg);
+}
+
+.fs-3 {
+  bottom: 15%;
+  left: 4%;
+  animation-delay: 2.5s;
+  transform: rotate(8deg);
+}
+
+.fs-4 {
+  bottom: 8%;
+  right: 4%;
+  animation-delay: 0.8s;
+  transform: rotate(-18deg);
+}
+
+.fs-5 {
+  top: 48%;
+  left: 2%;
+  animation-delay: 3.1s;
+  transform: rotate(25deg);
+}
+
+.fs-6 {
+  top: 52%;
+  right: 2%;
+  animation-delay: 1.8s;
+  transform: rotate(-10deg);
+}
+
+@keyframes floatSticker {
+  0% {
+    transform: translateY(0px) rotate(-10deg) scale(1);
+  }
+
+  100% {
+    transform: translateY(-16px) rotate(15deg) scale(1.1);
+  }
+}
+
+/* Outer Wrapper */
+.outer-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* ==========================================================================
+   2. SHORT VIDEO STORY FRAME (CLEAN 9:16 RATIO)
+   ========================================================================== */
+.story-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: min(760px, 94vh);
+  border-radius: 26px;
+  border: 3.5px solid var(--dark-border);
+  box-shadow: var(--pop-shadow-lg), 0 20px 45px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-yellow) 0%, var(--bg-orange) 30%, var(--bg-pink) 65%, var(--bg-purple) 100%);
+  background-size: 250% 250%;
+  animation: popGradient 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes popGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Halftone Pop-art pattern overlay */
+.story-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--dark-border) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Floating Internal Sparkles */
+.inner-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.75;
+  animation: floatSparkle 7s linear infinite;
+}
+
+@keyframes floatSparkle {
+  0% {
+    transform: translateY(750px) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.85;
+  }
+
+  80% {
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateY(-100px) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   3. TOP PROGRESS BAR & HEADER
+   ========================================================================== */
+.top-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 14px 6px 14px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+}
+
+/* 4-Segment Progress Bar */
+.progress-bar-container {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  height: 5px;
+}
+
+.progress-segment {
+  flex: 1;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--bg-yellow);
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(254, 202, 87, 0.9);
+  will-change: width;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px 12px 4px 6px;
+  border-radius: 30px;
+  border: 1.5px solid #ffffff;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 1.5px solid #fff;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Music Vinyl Controller */
+.music-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2d3436 35%, #000000 90%);
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: transform 0.15s ease;
+  z-index: 35;
+  pointer-events: auto;
+}
+
+.music-btn:active {
+  transform: scale(0.9);
+}
+
+.music-btn.playing {
+  animation: spinVinyl 3.5s linear infinite;
+}
+
+.music-btn::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--bg-pink);
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  position: absolute;
+}
+
+.music-icon {
+  color: #fff;
+  font-size: 11px;
+  z-index: 2;
+}
+
+@keyframes spinVinyl {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pause Pill Indicator when Holding */
+.pause-indicator {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: var(--dark-border);
+  color: var(--bg-yellow);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 40;
+  letter-spacing: 0.5px;
+  border: 1.5px solid #ffffff;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.pause-indicator.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Touch Navigation Overlay (30% Left / 70% Right) */
+.touch-nav {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  pointer-events: auto;
+}
+
+.touch-left {
+  width: 30%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.touch-right {
+  width: 70%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   4. SCENE CONTAINER & COMMON STYLES (CLEAN SPACING)
+   ========================================================================== */
+.scene-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  padding: 65px 16px 30px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+  transform: scale(0.92) rotate(-2deg);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scene::-webkit-scrollbar {
+  display: none;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) rotate(0deg);
+  pointer-events: none;
+}
+
+/* Banner / Headline badge */
+.pop-badge {
+  background: var(--dark-border);
+  color: var(--bg-yellow);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+  margin-bottom: 6px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.scene-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.32;
+  text-shadow: 2.5px 2.5px 0px var(--dark-border);
+  margin-bottom: 8px;
+  pointer-events: none;
+}
+
+.btn-pop {
+  position: relative;
+  z-index: 35;
+  pointer-events: auto;
+  background: var(--bg-yellow);
+  color: var(--dark-border);
+  border: 3px solid var(--dark-border);
+  padding: 11px 22px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--pop-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.btn-pop:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 6px 6px 0px var(--dark-border);
+  background: #fff;
+}
+
+.btn-pop:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 2px 2px 0px var(--dark-border);
+}
+
+.btn-pulse {
+  animation: popPulse 1.8s infinite;
+}
+
+@keyframes popPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 0px var(--dark-border);
+  }
+}
+
+/* ==========================================================================
+   5. SCENE 1: THE TRAP & SURPRISE GIFT BOX
+   ========================================================================== */
+.gift-stage {
+  position: relative;
+  z-index: 35;
+  pointer-events: auto;
+  margin: 10px 0 8px 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Illustrated CSS Gift Box with Flip-off Lid */
+.gift-container {
+  position: relative;
+  width: 125px;
+  height: 115px;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 139px;
+  height: 34px;
+  background: var(--bg-pink);
+  border: 3px solid var(--dark-border);
+  border-radius: 8px;
+  box-shadow: 0 3px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease;
+  transform-origin: top left;
+}
+
+.gift-lid::after {
+  content: '';
+  width: 22px;
+  height: 100%;
+  background: var(--bg-yellow);
+  border-left: 2.5px solid var(--dark-border);
+  border-right: 2.5px solid var(--dark-border);
+}
+
+/* Ribbon Bow on top */
+.gift-bow {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bow-loop {
+  width: 20px;
+  height: 20px;
+  background: var(--bg-yellow);
+  border: 3px solid var(--dark-border);
+  border-radius: 10px 10px 0 10px;
+}
+
+.bow-loop.right {
+  border-radius: 10px 10px 10px 0;
+}
+
+.gift-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 125px;
+  height: 86px;
+  background: var(--bg-mint);
+  border: 3px solid var(--dark-border);
+  border-radius: 0 0 12px 12px;
+  box-shadow: var(--pop-shadow);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gift-ribbon-vertical {
+  width: 22px;
+  height: 100%;
+  background: var(--bg-yellow);
+  border-left: 2.5px solid var(--dark-border);
+  border-right: 2.5px solid var(--dark-border);
+}
+
+/* Shake Animation for Scene 1 Gift */
+.gift-container.shaking {
+  animation: giftShake 0.6s ease-in-out infinite;
+}
+
+@keyframes giftShake {
+
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  20% {
+    transform: rotate(-8deg) scale(1.04);
+  }
+
+  40% {
+    transform: rotate(8deg) scale(1.04);
+  }
+
+  60% {
+    transform: rotate(-5deg) scale(1.02);
+  }
+
+  80% {
+    transform: rotate(5deg) scale(1.02);
+  }
+}
+
+/* Lid Flying Off Action */
+.gift-lid.opened {
+  transform: translateY(-140px) rotate(-110deg) scale(0.6);
+  opacity: 0;
+}
+
+.surprise-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--bg-yellow);
+  text-shadow: 3px 3px 0px var(--dark-border);
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27), transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+  z-index: 35;
+  line-height: 1.25;
+}
+
+.surprise-headline.bounce-in {
+  opacity: 1;
+  transform: scale(1);
+  animation: elasticBounce 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.27), popPulseGlow 1.8s ease-in-out 0.7s infinite alternate;
+}
+
+@keyframes elasticBounce {
+  0% {
+    transform: scale(0.2) rotate(-8deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.18) rotate(4deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(0.92) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes popPulseGlow {
+  0% {
+    transform: scale(1) rotate(0deg);
+    color: #feca57;
+    text-shadow: 3px 3px 0px var(--dark-border), 0 0 15px rgba(254, 202, 87, 0.8);
+  }
+
+  50% {
+    transform: scale(1.08) rotate(2deg);
+    color: #ff6b81;
+    text-shadow: 4px 4px 0px var(--dark-border), 0 0 20px rgba(255, 107, 129, 0.9);
+  }
+
+  100% {
+    transform: scale(1.03) rotate(-2deg);
+    color: #1dd1a1;
+    text-shadow: 3px 3px 0px var(--dark-border), 0 0 18px rgba(29, 209, 161, 0.9);
+  }
+}
+
+.scene1-subtext {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1.5px 1.5px 0px var(--dark-border);
+  text-align: center;
+  margin-top: 6px;
+  background: rgba(45, 52, 54, 0.75);
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #ffffff;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+.scene1-subtext.show {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   6. SCENE 2: MEMORY POLAROID CAROUSEL (ĐAM MÊ NGỦ & ĐI CHƠI)
+   ========================================================================== */
+.photo-counter-badge {
+  background: var(--bg-yellow);
+  color: var(--dark-border);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  border: 2px solid var(--dark-border);
+  box-shadow: 2px 2px 0px var(--dark-border);
+  margin-bottom: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: transform 0.15s ease;
+}
+
+.photo-counter-badge:active {
+  transform: scale(0.95);
+}
+
+.polaroid-deck-stage {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0 6px 0;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Background Card Stack Shadows */
+.deck-shadow-card {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background: var(--bg-pink);
+  border: 3px solid var(--dark-border);
+  border-radius: 12px;
+  box-shadow: var(--pop-shadow-lg);
+  transform: rotate(-6deg) scale(0.94);
+  opacity: 0.7;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.deck-shadow-card-2 {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background: var(--bg-mint);
+  border: 3.5px solid var(--dark-border);
+  border-radius: 12px;
+  box-shadow: var(--pop-shadow-lg);
+  transform: rotate(5deg) scale(0.96);
+  opacity: 0.85;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+/* Active Polaroid Card */
+.polaroid-active-card {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  padding: 10px 10px 14px 10px;
+  border: 3.5px solid var(--dark-border);
+  border-radius: 14px;
+  box-shadow: var(--pop-shadow-lg);
+  width: 265px;
+  max-width: 90vw;
+  transform: rotate(-2deg);
+  transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.27), opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.polaroid-active-card.slide-out {
+  transform: translateY(-130%) rotate(25deg) scale(0.75);
+  opacity: 0;
+}
+
+.polaroid-active-card.slide-in {
+  animation: polaroidPopIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+}
+
+@keyframes polaroidPopIn {
+  0% {
+    transform: translateY(60px) rotate(-10deg) scale(0.85);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) rotate(-2deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.polaroid-img-frame {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--dark-border);
+  background: #dfe6e9;
+  display: block;
+}
+
+.polaroid-card-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  color: var(--dark-border);
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+
+.photo-dots-container {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  pointer-events: auto;
+}
+
+.photo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid var(--dark-border);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.photo-dot.active {
+  background: var(--bg-yellow);
+  transform: scale(1.3);
+  box-shadow: 0 0 5px var(--bg-yellow);
+}
+
+.troll-caption-box {
+  background: var(--dark-border);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.38;
+}
+
+/* ==========================================================================
+   7. SCENE 3: INTERACTIVE CAKE & THAILAND TRIP VOUCHER (4.5s POPUP)
+   ========================================================================== */
+.cake-stage {
+  position: relative;
+  z-index: 35;
+  pointer-events: auto;
+  margin: 14px 0 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cake {
+  position: relative;
+  width: 165px;
+  height: 105px;
+  background: var(--bg-pink);
+  border: 3px solid var(--dark-border);
+  border-radius: 16px 16px 8px 8px;
+  box-shadow: var(--pop-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.cake-layer-middle {
+  height: 16px;
+  width: 100%;
+  background: var(--bg-yellow);
+  border-top: 2.5px solid var(--dark-border);
+  border-bottom: 2.5px solid var(--dark-border);
+  margin-bottom: 20px;
+}
+
+.cake-icing {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 26px;
+  background: #ffffff;
+  border-bottom: 3px solid var(--dark-border);
+  border-radius: 12px 12px 0 0;
+}
+
+.cake-drips {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 23px;
+  width: 100%;
+}
+
+.drip {
+  width: 16px;
+  height: 14px;
+  background: #ffffff;
+  border-bottom: 2.5px solid var(--dark-border);
+  border-left: 2.5px solid var(--dark-border);
+  border-right: 2.5px solid var(--dark-border);
+  border-radius: 0 0 8px 8px;
+}
+
+.plate {
+  width: 195px;
+  height: 14px;
+  background: var(--bg-purple);
+  border: 3px solid var(--dark-border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0px var(--dark-border);
+  margin-top: -3px;
+}
+
+/* Pop Candle & Flame */
+.candle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 42px;
+  background: repeating-linear-gradient(45deg, var(--bg-mint), var(--bg-mint) 7px, #ffffff 7px, #ffffff 14px);
+  border: 2.5px solid var(--dark-border);
+  border-radius: 5px 5px 0 0;
+  z-index: 5;
+}
+
+.wick {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 9px;
+  background: var(--dark-border);
+  border-radius: 2px;
+}
+
+.flame {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 26px;
+  background: radial-gradient(ellipse at bottom, var(--bg-yellow) 0%, var(--bg-orange) 60%, var(--bg-pink) 100%);
+  border: 2px solid var(--dark-border);
+  border-radius: 50% 50% 35% 35%;
+  box-shadow: 0 0 12px var(--bg-yellow);
+  animation: flameFlicker 0.15s infinite alternate ease-in-out;
+  transform-origin: center bottom;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: translateX(-50%) scale(1) rotate(-3deg);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1.12) rotate(4deg);
+  }
+}
+
+.flame.extinguished {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+  animation: none;
+}
+
+.smoke {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: rgba(220, 221, 225, 0.85);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.smoke.active {
+  animation: smokeDrift 1.8s ease-out forwards;
+}
+
+@keyframes smokeDrift {
+  0% {
+    opacity: 0.95;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translate(-75%, -35px) scale(2.5);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-30%, -75px) scale(4);
+    filter: blur(4px);
+  }
+}
+
+/* Centered Modal Overlay for Thailand Trip Voucher Ticket */
+.wish-toast {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, var(--bg-yellow) 0%, #ffffff 100%);
+  color: var(--dark-border);
+  border: 3.5px solid var(--dark-border);
+  padding: 16px 14px;
+  border-radius: 18px;
+  font-weight: 800;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), var(--pop-shadow-lg);
+  opacity: 0;
+  transform: translateY(-50%) scale(0.7);
+  transition: opacity 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.27), transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+  pointer-events: none;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.wish-toast.show {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.voucher-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #d63031;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 2.5px dashed var(--dark-border);
+  padding-bottom: 6px;
+}
+
+.voucher-body {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--dark-border);
+}
+
+/* ==========================================================================
+   8. SCENE 4: GRAND FINALE & FIREWORKS
+   ========================================================================== */
+.finale-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.disco-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--bg-yellow);
+  text-shadow: 3px 3px 0px var(--dark-border);
+  animation: discoPulse 2s ease-in-out infinite alternate;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+@keyframes discoPulse {
+  0% {
+    text-shadow: 3px 3px 0px var(--dark-border), 0 0 8px var(--bg-yellow);
+  }
+
+  100% {
+    text-shadow: 3px 3px 0px var(--dark-border), 0 0 20px var(--bg-pink);
+    color: #fff;
+  }
+}
+
+.photo-frame-glow {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--bg-yellow), var(--bg-pink), var(--bg-mint));
+  border: 3.5px solid var(--dark-border);
+  box-shadow: var(--pop-shadow-lg);
+  animation: framePulse 3s infinite ease-in-out;
+}
+
+@keyframes framePulse {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.04) rotate(3deg);
+  }
+}
+
+.bestie-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--dark-border);
+}
+
+.final-wish-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 3.5px solid var(--dark-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: var(--dark-border);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.48;
+  box-shadow: var(--pop-shadow);
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.final-wish-card::-webkit-scrollbar {
+  width: 4px;
+}
+
+.final-wish-card::-webkit-scrollbar-thumb {
+  background: var(--bg-pink);
+  border-radius: 4px;
+}
+
+/* Canvas for Confetti Fireworks */
+#confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 25;
+}
